@@ -1,0 +1,7 @@
+/node_modules/
+/public/
+.vscode
+.idea
+/dist/
+src/assets
+.eslintrc.cjs
