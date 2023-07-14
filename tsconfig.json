@@ -6,6 +6,11 @@
         "module": "ESNext",
         "skipLibCheck": true,
 
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+
         /* Bundler mode */
         "moduleResolution": "bundler",
         "allowImportingTsExtensions": true,
@@ -20,7 +25,7 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src", "vite.config.ts", "types/*.d.ts", "build/**/**/*.ts"],
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "./build", "vite.config.ts"],
     "exclude": ["node_modules", ".vscode"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
