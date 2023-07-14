@@ -86,6 +86,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "css.lint.unknownAtRules": "ignore",
   "cSpell.words": [
     "Avenir",
     "brotli",
@@ -96,6 +97,7 @@
     "originjs",
     "Parens",
     "pngquant",
-    "spacingjs"
+    "spacingjs",
+    "tailwindcss"
   ]
 }

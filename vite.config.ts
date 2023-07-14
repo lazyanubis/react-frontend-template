@@ -13,7 +13,7 @@ export default defineConfig(({ command, mode }) => {
     const readEnv = loadEnv(mode, './env');
     // @ts-ignore force transform, not a bit problem for string variable
     const metaEvn: ImportMetaEnv = readEnv; // 导入设置的环境变量，会根据选择的 mode 选择文件
-    console.error('metaEvn -> ', metaEvn); // 输出加载的环境变量
+    console.warn('metaEvn -> ', metaEvn); // 输出加载的环境变量
     // but matters other types
 
     // port

@@ -15,6 +15,7 @@ import { legacyPlugin } from './legacy';
 
 export const createVitePlugins = (metaEvn: ImportMetaEnv, isBuild: boolean) => {
     const {
+        VITE_PLUGIN_LEGACY: legacy,
         VITE_PLUGIN_BUILD_COMPRESS_TYPE: compressType,
         VITE_PLUGIN_BUILD_COMPRESS_DELETE_ORIGIN_FILE: shouldBuildCompressDeleteFile,
         VITE_PLUGIN_USE_IMAGEMIN: shouldUseImagemin,
@@ -28,7 +29,7 @@ export const createVitePlugins = (metaEvn: ImportMetaEnv, isBuild: boolean) => {
     vitePlugins.push(...viteContent()); // 文件导入
     vitePlugins.push(purgeIcons({})); // 图片管理
     vitePlugins.push(visualizerPlugin()); // 可视化依赖分析，非生产模式
-    vitePlugins.push(...legacyPlugin()); // 低级浏览器支持
+    legacy === 'true' && vitePlugins.push(...legacyPlugin()); // 低级浏览器支持
 
     if (isBuild) {
         // 生成模式执行

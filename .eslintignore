@@ -5,3 +5,6 @@
 /dist/
 src/assets
 .eslintrc.cjs
+build/vite/plugins
+postcss.config.cjs
+tailwind.config.js

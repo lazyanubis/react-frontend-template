@@ -7,10 +7,12 @@
     "private": false,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "tsc && vite build",
+        "dev": "vite --mode=development",
+        "staging": "vite --mode=staging",
+        "build": "tsc && vite build --mode=production",
         "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview"
+        "preview": "vite --mode=development preview",
+        "report": "cross-env REPORT=true npm run build --mode=production"
     },
     "dependencies": {
         "buffer": "^6.0.3",
@@ -27,14 +29,18 @@
         "@typescript-eslint/parser": "^6.0.0",
         "@vitejs/plugin-legacy": "^4.1.0",
         "@vitejs/plugin-react-swc": "^3.3.2",
+        "autoprefixer": "^10.4.14",
         "eslint": "^8.45.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^5.0.0",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
+        "postcss": "^8.4.26",
+        "postcss-html": "^1.5.0",
         "prettier": "^3.0.0",
         "prettier-eslint": "^15.0.1",
         "rollup-plugin-visualizer": "^5.9.2",
+        "tailwindcss": "^3.3.3",
         "terser": "^5.19.0",
         "typescript": "^5.1.6",
         "vite": "^4.4.4",
@@ -46,5 +52,23 @@
         "vite-plugin-svg-icons": "^2.0.1",
         "vite-plugin-theme": "^0.8.6",
         "vue-tsc": "^1.8.5"
-    }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "pre-push": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,md,html,css,vue}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "browserslist": [
+        "last 2 chrome version",
+        "last 2 firefox version",
+        "last 2 safari version",
+        "last 2 edge version"
+    ]
 }
