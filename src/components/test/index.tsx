@@ -2,6 +2,8 @@ import { useState } from 'react';
 import reactLogo from '../../assets/react.svg';
 import viteLogo from '/vite.svg';
 
+import './index.less';
+
 import { add } from '@/test/common';
 
 export default () => {
@@ -28,7 +30,7 @@ export default () => {
             </div>
             <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
             {n}
-            <div className="text-3xl font-bold underline">Test Tailwind</div>
+            <div className="test-text text-3xl font-bold underline">Test Tailwind</div>
         </>
     );
 };
