@@ -83,13 +83,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "[vue]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
-  },
   "cSpell.words": [
     "Avenir",
+    "brotli",
     "corejs",
     "Parens"
   ]

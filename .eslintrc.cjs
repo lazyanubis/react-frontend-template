@@ -2,7 +2,12 @@
 
 module.exports = {
     root: true,
-    env: { browser: true, es2020: true },
+    env: {
+        es2020: true,
+        browser: true,
+        node: true,
+        es6: true,
+    },
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
@@ -16,9 +21,46 @@ module.exports = {
         project: true,
         tsconfigRootDir: __dirname,
     },
-    plugins: ['react-refresh'],
+    extends: [
+        'plugin:@typescript-eslint/recommended',
+        'prettier',
+        'plugin:prettier/recommended',
+        'eslint:recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+    ],
+    plugins: ['react-refresh', 'prettier', '@typescript-eslint'],
     rules: {
-        'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+        'max-len': ['off', { code: 100 }],
+        'prettier/prettier': 'error',
+        'generator-star-spacing': 'off',
+        'import/no-named-as-default': 'off',
+        'import/no-named-as-default-member': 'off',
+        'no-unused-vars': ['warn', { vars: 'all', args: 'none', ignoreRestSiblings: false }], //没有使用的参数，不会报错。因为个人觉的把可用的参数写上去 有利于以后的维护。
+        '@typescript-eslint/ban-ts-ignore': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-unused-vars': [
+            'error',
+            {
+                argsIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+            },
+        ],
+        'no-unused-vars': [
+            'warn',
+            {
+                argsIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+            },
+        ],
+        'space-before-function-paren': 'off',
     },
 };
