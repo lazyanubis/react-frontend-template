@@ -10,5 +10,10 @@
     "quoteProps": "as-needed",
     "bracketSpacing": true,
     "useTabs": false,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "importOrder": ["^react(.*)", "<THIRD_PARTY_MODULES>", "@/(.*)", "^[./]"],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tailwindFunctions": ["clsx", "cn"]
 }
