@@ -1,5 +1,5 @@
 import { defineConfig, loadEnv, UserConfig } from 'vite';
-import * as path from 'path';
+import path from 'path';
 
 import { ImportMetaEnv } from './src/vite-env';
 

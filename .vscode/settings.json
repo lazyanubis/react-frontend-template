@@ -90,6 +90,12 @@
     "Avenir",
     "brotli",
     "corejs",
-    "Parens"
+    "gifsicle",
+    "mozjpeg",
+    "optipng",
+    "originjs",
+    "Parens",
+    "pngquant",
+    "spacingjs"
   ]
 }

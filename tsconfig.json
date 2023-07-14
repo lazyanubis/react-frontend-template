@@ -18,6 +18,8 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx",
+        "outDir": "./lib/",
+        "rootDir": "./src",
 
         /* Linting */
         "strict": true,
@@ -25,7 +27,7 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "./build", "vite.config.ts"],
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
     "exclude": ["node_modules", ".vscode"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

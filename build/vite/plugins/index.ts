@@ -3,17 +3,41 @@ import type { PluginOption } from 'vite';
 import { ImportMetaEnv } from '../../../src/vite-env';
 
 import react from '@vitejs/plugin-react-swc';
+import { viteHtmlPlugins } from './html';
+import { svgIconsPlugin } from './svgIcons';
+import { viteContent } from './content';
+import { viteCompressionPlugin } from './compression';
+import purgeIcons from 'vite-plugin-purge-icons';
+import { visualizerPlugin } from './visualizer';
+import { imageminPlugin } from './imagemin';
+import { pwaPlugin } from './pwa';
+import { legacyPlugin } from './legacy';
 
-export const createVitePlugins = (_metaEvn: ImportMetaEnv, _isBuild: boolean) => {
-    // const {
-    //     VITE_BUILD_COMPRESS: compressType,
-    //     VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: shouldBuildCompressDeleteFile,
-    //     VITE_USE_IMAGEMIN: shouldUseImagemin,
-    // } = metaEvn;
+export const createVitePlugins = (metaEvn: ImportMetaEnv, isBuild: boolean) => {
+    const {
+        VITE_PLUGIN_BUILD_COMPRESS_TYPE: compressType,
+        VITE_PLUGIN_BUILD_COMPRESS_DELETE_ORIGIN_FILE: shouldBuildCompressDeleteFile,
+        VITE_PLUGIN_USE_IMAGEMIN: shouldUseImagemin,
+    } = metaEvn;
 
     const vitePlugins: (PluginOption | PluginOption[])[] = [];
 
     vitePlugins.push(react());
+    vitePlugins.push(...viteHtmlPlugins(metaEvn, isBuild)); // 注入配置字符串
+    vitePlugins.push(svgIconsPlugin(isBuild)); // svg 图标资源整合管理
+    vitePlugins.push(...viteContent()); // 文件导入
+    vitePlugins.push(purgeIcons({})); // 图片管理
+    vitePlugins.push(visualizerPlugin()); // 可视化依赖分析，非生产模式
+    vitePlugins.push(...legacyPlugin()); // 低级浏览器支持
+
+    if (isBuild) {
+        // 生成模式执行
+        vitePlugins.push(
+            viteCompressionPlugin(compressType, shouldBuildCompressDeleteFile === 'true'), // 压缩
+        );
+        shouldUseImagemin === 'true' && vitePlugins.push(imageminPlugin()); // 压缩图片 vite-plugin-imagemin 貌似这个插件不支持 m1 芯片 以后再检查吧
+        vitePlugins.push(pwaPlugin(metaEvn)); // 缓存应用什么的
+    }
 
     return vitePlugins;
 };
