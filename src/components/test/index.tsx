@@ -9,6 +9,8 @@ export default () => {
 
     const n = add(111, 2);
 
+    const a = 123;
+
     return (
         <>
             <div>
