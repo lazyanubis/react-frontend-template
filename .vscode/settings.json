@@ -101,6 +101,7 @@
     "pngquant",
     "spacingjs",
     "tailwindcss",
-    "trivago"
+    "trivago",
+    "zustand"
   ]
 }

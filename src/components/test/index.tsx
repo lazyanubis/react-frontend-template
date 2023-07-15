@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import DatePicker from 'antd/es/date-picker';
+import { useBearStore } from '@/store/bear';
 import { add } from '@/test/common';
 import reactLogo from '../../assets/react.svg';
+import Test2 from './index2';
 import './index.less';
 import viteLogo from '/vite.svg';
 
 export default () => {
     const [count, setCount] = useState(0);
+
+    const increase = useBearStore((state) => state.increase);
 
     const n = add(111, 2);
 
@@ -31,6 +35,9 @@ export default () => {
             {n}
             <div className="test-text text-3xl font-bold underline">Test Tailwind</div>
             <DatePicker />
+            <hr />
+            <Test2 />
+            <div onClick={() => increase(2)}>add 2</div>
         </>
     );
 };
