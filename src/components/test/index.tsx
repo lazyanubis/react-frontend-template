@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import reactLogo from '../../assets/react.svg';
-import viteLogo from '/vite.svg';
-
-import './index.less';
-
+import DatePicker from 'antd/es/date-picker';
 import { add } from '@/test/common';
+import reactLogo from '../../assets/react.svg';
+import './index.less';
+import viteLogo from '/vite.svg';
 
 export default () => {
     const [count, setCount] = useState(0);
@@ -31,6 +30,7 @@ export default () => {
             <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
             {n}
             <div className="test-text text-3xl font-bold underline">Test Tailwind</div>
+            <DatePicker />
         </>
     );
 };

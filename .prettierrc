@@ -11,9 +11,24 @@
     "bracketSpacing": true,
     "useTabs": false,
     "tabWidth": 4,
-    "importOrder": ["^react(.*)", "<THIRD_PARTY_MODULES>", "@/(.*)", "^[./]"],
-    "importOrderSeparation": true,
+
+    "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+    "importOrder": [
+        "^vite",
+        "^react",
+        "^react(.*)",
+        "^antd",
+        "<THIRD_PARTY_MODULES>",
+        "@/components/",
+        "@/pages/",
+        "@/views/",
+        "@/hooks/",
+        "@/utils/",
+        "@/(.*)",
+        "^[./]"
+    ],
+    "importOrderGroupNamespaceSpecifiers": true,
     "importOrderSortSpecifiers": true,
-    "plugins": ["prettier-plugin-tailwindcss"],
+    "importOrderCaseInsensitive": true,
     "tailwindFunctions": ["clsx", "cn"]
 }

@@ -88,6 +88,7 @@
   },
   "css.lint.unknownAtRules": "ignore",
   "cSpell.words": [
+    "antd",
     "Avenir",
     "brotli",
     "clsx",
@@ -99,6 +100,7 @@
     "Parens",
     "pngquant",
     "spacingjs",
-    "tailwindcss"
+    "tailwindcss",
+    "trivago"
   ]
 }
