@@ -8,3 +8,4 @@ src/assets
 build/vite/plugins
 postcss.config.cjs
 tailwind.config.js
+vite.config.ts
