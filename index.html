@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -17,9 +17,6 @@
 
         <!-- debug script -->
         <%- debugScript %>
-
-        <link rel="stylesheet" type="text/css" href="/src/assets/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="/src/assets/css/main.css" />
     </head>
     <body>
         <noscript>
@@ -27,14 +24,15 @@
                 We're sorry but <%- noScriptTitle %> doesn't work properly without JavaScript
                 enabled. Please enable it to continue.
             </strong>
-          </noscript>
+        </noscript>
         <div id="root"></div>
         <div id="app"></div>
         <script type="module">
             import { Buffer } from 'buffer';
+
             window.global = window;
             window.Buffer = Buffer;
         </script>
-    <script type="module" src="/src/main.tsx"></script>
+        <script type="module" src="/src/main.tsx"></script>
     </body>
 </html>

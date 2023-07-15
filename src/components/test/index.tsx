@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import DatePicker from 'antd/es/date-picker';
+import { t } from '@/locale';
 import { useBearStore } from '@/store/bear';
+import { useWebsiteStore } from '@/store/website';
 import { add } from '@/test/common';
 import reactLogo from '../../assets/react.svg';
 import Test2 from './index2';
@@ -11,6 +14,13 @@ export default () => {
     const [count, setCount] = useState(0);
 
     const increase = useBearStore((state) => state.increase);
+
+    const language = useWebsiteStore((state) => state.language);
+    const changeLanguage = useWebsiteStore(
+        (state) => () => state.setLanguage(language === 'en' ? 'zh-CN' : 'en'),
+    );
+
+    const { t: tt } = useTranslation();
 
     const n = add(111, 2);
 
@@ -37,7 +47,12 @@ export default () => {
             <DatePicker />
             <hr />
             <Test2 />
-            <div onClick={() => increase(2)}>add 2</div>
+            <button onClick={() => increase(2)}>add 2</button>
+            <button onClick={changeLanguage}>Change Language</button>
+            <div>{language}</div>
+            <div>{t('test.test')}</div>
+            <div>{tt('test.test')}</div>
+            <div>{tt('test.test2')}</div>
         </>
     );
 };

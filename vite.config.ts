@@ -1,9 +1,7 @@
 import { defineConfig, loadEnv, UserConfig } from 'vite';
 import path from 'path';
-
-import { ImportMetaEnv } from './src/vite-env';
-
 import { createVitePlugins } from './build/vite/plugins';
+import { ImportMetaEnv } from './src/vite-env';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
