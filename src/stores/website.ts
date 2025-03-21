@@ -1,8 +1,9 @@
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { setLanguage } from '@/locale';
-import { SupportedLanguage } from '@/types/model';
+
+import { SupportedLanguage } from '@/types/locale';
+import { setLanguage } from '@/locales';
 
 const isDev = import.meta.env.DEV;
 
@@ -32,4 +33,4 @@ export const useWebsiteStore = create<WebsiteState>()(
     ),
 );
 
-isDev && mountStoreDevtool('WebsiteStore', useWebsiteStore);
+if (isDev) mountStoreDevtool('WebsiteStore', useWebsiteStore);

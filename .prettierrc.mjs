@@ -29,7 +29,7 @@ export default {
         '@/types/',
         '@/utils/',
         '@/locales/',
-        '@/store/',
+        '@/stores/',
         '@/hooks/',
         '@/components/',
         '@/pages/',

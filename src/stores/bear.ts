@@ -26,4 +26,4 @@ export const useBearStore = create<BearState>()(
     ),
 );
 
-isDev && mountStoreDevtool('BearStore', useBearStore);
+if (isDev) mountStoreDevtool('BearStore', useBearStore);
