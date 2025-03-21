@@ -1,9 +1,10 @@
-import { defineConfig, loadEnv, UserConfig } from 'vite';
 import path from 'path';
-import { createVitePlugins } from './build/vite/plugins';
+import { defineConfig, loadEnv, UserConfig } from 'vite';
+
+import { createVitePlugins } from './plugins';
 import { ImportMetaEnv } from './src/vite-env';
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
     console.log('command ->', command);
     console.log('mode ->', mode);
@@ -37,12 +38,14 @@ export default defineConfig(({ command, mode }) => {
         },
         build: {
             minify: isBuild ? 'terser' : false, // 默认为 Esbuild，它比 terser 快 20-40 倍，压缩率只差 1%-2%
-            terserOptions: isBuild && {
-                compress: {
-                    drop_console, // 生产环境去除 console
-                    drop_debugger, // 生产环境去除 debugger
-                },
-            },
+            terserOptions: isBuild
+                ? {
+                      compress: {
+                          drop_console, // 生产环境去除 console
+                          drop_debugger, // 生产环境去除 debugger
+                      },
+                  }
+                : undefined,
         },
         envDir: 'env',
         envPrefix: ['ENV'],

@@ -1,4 +1,5 @@
 import type { PluginOption } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 
 import { ImportMetaEnv } from '../src/vite-env';
@@ -22,6 +23,7 @@ export const createVitePlugins = (metaEvn: ImportMetaEnv, isBuild: boolean) => {
     const vitePlugins: (PluginOption | PluginOption[])[] = [];
 
     vitePlugins.push(react());
+    vitePlugins.push(tailwindcss());
     vitePlugins.push(...viteHtmlPlugins(metaEvn, isBuild)); // 注入配置字符串
     vitePlugins.push(svgIconsPlugin(isBuild)); // svg 图标资源整合管理
     vitePlugins.push(...viteYaml()); // yml导入
