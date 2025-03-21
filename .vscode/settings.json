@@ -22,6 +22,7 @@
         "ianvs",
         "modyfi",
         "spacingjs",
-        "usehooks"
+        "usehooks",
+        "vite"
     ],
 }

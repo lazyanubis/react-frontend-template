@@ -19,9 +19,23 @@ export default {
     plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
     importOrder: [
         '<BUILTIN_MODULES>', // Node.js built-in modules
+        '^vite',
+        '^react',
+        '^react(.*)',
         '<THIRD_PARTY_MODULES>', // Imports not matched by other special words or groups.
+        '^@heroui/(.*)$',
         '', // Empty line
-        '^@/(.*)$',
+        '@/assets/',
+        '@/types/',
+        '@/utils/',
+        '@/locales/',
+        '@/store/',
+        '@/hooks/',
+        '@/components/',
+        '@/pages/',
+        '@/views/',
+        '@/routes/',
+        '@/(.*)',
         '', // Empty line
         '^[./]',
     ],
