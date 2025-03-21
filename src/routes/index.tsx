@@ -1,15 +1,8 @@
-import { Navigate, RouteObject } from 'react-router-dom';
-import Test from '@/components/test/index';
+import { RouteObject } from 'react-router';
 
-const routes: RouteObject[] = [
-    {
-        path: '/test',
-        element: <Test />,
-    },
-    {
-        path: '/',
-        element: <Navigate to="/test" />,
-    },
+import HomePage from './pages/Home';
+
+export const routes: RouteObject[] = [
+    { path: '/', element: <HomePage /> },
+    { path: '*', element: <HomePage /> },
 ];
-
-export default routes;
