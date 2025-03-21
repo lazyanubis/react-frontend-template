@@ -10,7 +10,7 @@ declare module '*.yml' {
     export default value;
 }
 
-export type EvnMode = 'dev' | 'staging' | 'production';
+export type EvnMode = 'dev' | 'production';
 
 export interface ImportMetaEnv {
     // 程序开发需要的配置

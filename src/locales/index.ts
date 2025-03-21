@@ -1,4 +1,4 @@
-import { initReactI18next, useTranslation } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
 import { SupportedLanguage } from '@/types/locales';
@@ -9,6 +9,7 @@ import zhCN from './langs/zh-CN';
 import { setHtmlPageLang } from './locales';
 
 let current = 'en';
+export const get_current_locale = () => current;
 
 i18n.use(initReactI18next) // passes i18n down to react-i18next
     .init({
@@ -38,15 +39,6 @@ export const setLanguage = (language: SupportedLanguage) => {
     i18n.changeLanguage(language);
     setHtmlPageLang(language);
     current = language;
-};
-
-export const useTransactionText = (key: string): string => {
-    const { t: translate } = useTranslation();
-    const value = translate(key);
-    if (!value) {
-        console.error(`can not find multi-language value for key '${key}' with ${current} environment. Check please.`);
-    }
-    return value;
 };
 
 export default i18n;

@@ -18,6 +18,7 @@
     "i18n-ally.enabledFrameworks": ["vue", "react"],
     "cSpell.words": [
         "Avenir",
+        "commitlint",
         "heroui",
         "ianvs",
         "modyfi",

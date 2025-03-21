@@ -1,18 +1,24 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+
+import { useBearStore } from '@/stores/bear';
+import { useWebsiteStore } from '@/stores/website';
+import { useTransaction } from '@/hooks/translation';
+import Test from '@/components/test';
 
 import reactLogo from '../assets/react.svg';
-import Test2 from '../components/test';
 import viteLogo from '/vite.svg';
 
 function HomePage() {
+    const t = useTransaction();
+
     const [count, setCount] = useState(0);
 
     const increase = useBearStore((state) => state.increase);
 
-    const language = useWebsiteStore((state) => state.language);
-    const changeLanguage = useWebsiteStore((state) => () => state.setLanguage(language === 'en' ? 'zh-CN' : 'en'));
-
-    const { t: tt } = useTranslation();
+    const { language, setLanguage } = useWebsiteStore();
+    const changeLanguage = useCallback(() => {
+        setLanguage(language === 'en' ? 'zh-CN' : 'en');
+    }, [language, setLanguage]);
 
     return (
         <>
@@ -33,13 +39,13 @@ function HomePage() {
             </div>
             <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
             <hr />
-            <Test2 />
+            <Test />
             <button onClick={() => increase(2)}>add 2</button>
             <button onClick={changeLanguage}>Change Language</button>
             <div>{language}</div>
             <div>{t('test.test')}</div>
-            <div>{tt('test.test')}</div>
-            <div>{tt('test.test2')}</div>
+            <div>{t('test.test')}</div>
+            <div>{t('test.test2')}</div>
         </>
     );
 }
