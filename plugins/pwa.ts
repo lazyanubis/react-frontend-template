@@ -1,8 +1,7 @@
 import type { Plugin } from 'vite';
-
 import { VitePWA } from 'vite-plugin-pwa'; // vite pwa 0 配置插件 https://github.com/antfu/vite-plugin-pwa
 
-import { ImportMetaEnv } from '../../../src/vite-env';
+import { ImportMetaEnv } from '../src/vite-env';
 
 export function pwaPlugin(env: ImportMetaEnv) {
     const {

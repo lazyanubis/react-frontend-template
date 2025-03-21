@@ -2,7 +2,6 @@ import type { Plugin } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 // 包文件体积分析
-
 export function visualizerPlugin() {
     if (process.env.REPORT) {
         const v = visualizer({

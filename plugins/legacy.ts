@@ -1,5 +1,4 @@
 import type { Plugin } from 'vite';
-
 import legacy from '@vitejs/plugin-legacy';
 
 // Vite默认的浏览器支持基线是原生ESM。本插件为不支持原生ESM的传统浏览器提供支持

@@ -1,8 +1,7 @@
 import { PluginOption } from 'vite';
-
-import { ImportMetaEnv } from '../../../src/vite-env';
-
 import { createHtmlPlugin } from 'vite-plugin-html';
+
+import { ImportMetaEnv } from '../src/vite-env';
 
 export function viteHtmlPlugins(metaEnv: ImportMetaEnv, isBuild: boolean): PluginOption[] {
     return createHtmlPlugin({

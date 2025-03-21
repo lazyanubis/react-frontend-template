@@ -1,8 +1,6 @@
-import type { Plugin } from 'vite';
-
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
-
 import path from 'path';
+import type { Plugin } from 'vite';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 export function svgIconsPlugin(isBuild: boolean) {
     const svgIconsPlugin = createSvgIconsPlugin({

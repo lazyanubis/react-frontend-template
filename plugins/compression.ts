@@ -1,5 +1,4 @@
 import type { Plugin } from 'vite';
-
 import compressionPlugin from 'vite-plugin-compression';
 
 export function viteCompressionPlugin(

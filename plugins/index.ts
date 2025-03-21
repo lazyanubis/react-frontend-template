@@ -1,13 +1,13 @@
 import type { PluginOption } from 'vite';
-import purgeIcons from 'vite-plugin-purge-icons';
 import react from '@vitejs/plugin-react-swc';
-import { ImportMetaEnv } from '../../../src/vite-env';
+
+import { ImportMetaEnv } from '../src/vite-env';
 import { viteCompressionPlugin } from './compression';
 import { viteHtmlPlugins } from './html';
 import { imageminPlugin } from './imagemin';
 import { legacyPlugin } from './legacy';
 import { pwaPlugin } from './pwa';
-import { svgIconsPlugin } from './svgIcons';
+import { svgIconsPlugin } from './svg-icons';
 import { visualizerPlugin } from './visualizer';
 import { viteYaml } from './yaml';
 
@@ -25,7 +25,6 @@ export const createVitePlugins = (metaEvn: ImportMetaEnv, isBuild: boolean) => {
     vitePlugins.push(...viteHtmlPlugins(metaEvn, isBuild)); // 注入配置字符串
     vitePlugins.push(svgIconsPlugin(isBuild)); // svg 图标资源整合管理
     vitePlugins.push(...viteYaml()); // yml导入
-    vitePlugins.push(purgeIcons({})); // 图片管理
     vitePlugins.push(...visualizerPlugin()); // 可视化依赖分析，非生产模式
     legacy === 'true' && vitePlugins.push(...legacyPlugin()); // 低级浏览器支持
 
