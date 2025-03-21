@@ -1,6 +1,8 @@
 import { initReactI18next, useTranslation } from 'react-i18next';
 import i18n from 'i18next';
-import { SupportedLanguage } from '@/types/model';
+
+import { SupportedLanguage } from '@/types/locales';
+
 import commonLanguages from './langs/common';
 import en from './langs/en';
 import zhCN from './langs/zh-CN';
@@ -38,17 +40,13 @@ export const setLanguage = (language: SupportedLanguage) => {
     current = language;
 };
 
-export const parseText = (key: string): string => {
+export const useTransactionText = (key: string): string => {
     const { t: translate } = useTranslation();
     const value = translate(key);
     if (!value) {
-        console.error(
-            `can not find multi-language value for key '${key}' with ${current} environment. Check please.`,
-        );
+        console.error(`can not find multi-language value for key '${key}' with ${current} environment. Check please.`);
     }
     return value;
 };
-
-export const t = (key: string): string => parseText(key);
 
 export default i18n;
