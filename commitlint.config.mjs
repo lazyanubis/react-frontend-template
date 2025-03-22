@@ -33,7 +33,7 @@ export default {
 
         'scope-case': [2, 'always', 'lower-case'],
 
-        'subject-min-length': [2, 'always', 10], // 用于限制提交信息中 subject（描述）的最小长度
+        'subject-min-length': [2, 'always', 4], // 用于限制提交信息中 subject（描述）的最小长度
         'subject-max-length': [2, 'always', 100], // 用于限制提交信息中 subject 的最大长度
         'subject-case': [2, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']], // 句子首字母大写、单词首字母大写、无空格单词首字母大写、全部大写
         'subject-empty': [2, 'never'], // subject（描述部分）是否可以为空
