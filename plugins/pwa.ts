@@ -1,7 +1,7 @@
 import type { Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa'; // vite pwa 0 配置插件 https://github.com/antfu/vite-plugin-pwa
 
-import { ImportMetaEnv } from '../src/vite-env';
+import type { ImportMetaEnv } from '../src/vite-env';
 
 export function pwaPlugin(env: ImportMetaEnv) {
     const {
@@ -13,6 +13,7 @@ export function pwaPlugin(env: ImportMetaEnv) {
     if (shouldUsePwa) {
         // vite-plugin-pwa
         const pwaPlugin = VitePWA({
+            registerType: 'autoUpdate',
             manifest: {
                 name: appTitle,
                 short_name: shortName,

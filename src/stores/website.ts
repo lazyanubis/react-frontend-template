@@ -2,7 +2,7 @@ import { mountStoreDevtool } from 'simple-zustand-devtools';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-import { SupportedLanguage } from '@/types/locale';
+import type { SupportedLanguage } from '@/types/locales';
 import { setLanguage } from '@/locales';
 
 const isDev = import.meta.env.DEV;

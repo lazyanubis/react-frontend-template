@@ -1,8 +1,9 @@
 import type { PluginOption } from 'vite';
+import babel from '@rolldown/plugin-babel';
 import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react-swc';
+import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 
-import { ImportMetaEnv } from '../src/vite-env';
+import type { ImportMetaEnv } from '../src/vite-env';
 import { viteCompressionPlugin } from './compression';
 import { viteHtmlPlugins } from './html';
 import { imageminPlugin } from './imagemin';
@@ -23,6 +24,7 @@ export const createVitePlugins = (metaEvn: ImportMetaEnv, isBuild: boolean) => {
     const vitePlugins: (PluginOption | PluginOption[])[] = [];
 
     vitePlugins.push(react());
+    vitePlugins.push(babel({ presets: [reactCompilerPreset()] }));
     vitePlugins.push(tailwindcss());
     vitePlugins.push(...viteHtmlPlugins(metaEvn, isBuild)); // 注入配置字符串
     vitePlugins.push(svgIconsPlugin(isBuild)); // svg 图标资源整合管理

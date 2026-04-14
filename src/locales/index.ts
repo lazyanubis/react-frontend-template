@@ -1,7 +1,7 @@
 import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
-import { SupportedLanguage } from '@/types/locales';
+import type { SupportedLanguage } from '@/types/locales';
 
 import commonLanguages from './langs/common';
 import en from './langs/en';
